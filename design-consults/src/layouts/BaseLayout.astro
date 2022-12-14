@@ -1,0 +1,43 @@
+---
+import Header from "../components/Header.astro";
+import { USWDS_PATH } from "../constants";
+
+export interface Props {
+  title: string;
+  wide?: boolean;
+}
+
+const { title, wide } = Astro.props as Props;
+
+---
+
+<!DOCTYPE html>
+<html lang="en" class="height-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="stylesheet" href={`${USWDS_PATH}css/uswds.min.css`} />
+    <!-- TODO: Fix script tag formatting -->
+    <script is:inline src={`${USWDS_PATH}js/uswds-init.min.js`}>
+
+    </script>
+    <title>{title}</title>
+  </head>
+  <body class="height-full display-flex flex-column">
+    <a class="usa-skipnav" href="#main-content">Skip to main content</a>
+    <Header />
+
+    <!-- bottom padding removed for iframe to extend to bottom of viewport -->
+    <main id="main-content" class="height-full padding-bottom-0 usa-section">
+      <div class={`height-full display-flex flex-column ${wide ? '' : 'grid-container'}`}>
+        <slot></slot>
+      </div>
+    </main>
+
+    <!-- TODO: Fix script tag formatting -->
+    <script is:inline src={`${USWDS_PATH}js/uswds.min.js`}>
+
+    </script>
+  </body>
+</html>

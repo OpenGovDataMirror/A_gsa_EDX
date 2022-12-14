@@ -1,0 +1,20 @@
+/* scorecard specific styling, otherwise, uses USWDS */
+html {
+  scroll-behavior: smooth;
+}
+.usa-accordion__content {
+  border: 0.25rem solid var(--color, currentColor);
+}
+.usa-accordion__button {
+  border-left: 1.25rem solid var(--color, currentColor);
+}
+
+.green {
+  --color: green;
+}
+.red {
+  --color: red;
+}
+.navy {
+  --color: navy;
+}
